@@ -1,0 +1,12 @@
+.DS_Store
+
+# Eclipse stuff
+/.settings
+/bin
+/target
+/.classpath
+/.project
+
+# User-specific stuff:
+.idea/
+*.iml
