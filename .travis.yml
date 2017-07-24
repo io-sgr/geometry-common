@@ -1,0 +1,10 @@
+language: java
+sudo: false # faster builds
+
+jdk:
+  - oraclejdk7
+  
+after_success:
+  - mvn versioneye:update
+  - bash <(curl -s https://codecov.io/bash)
+  
