@@ -3,7 +3,7 @@
 	
 	<groupId>io.sgr</groupId>
 	<artifactId>geometry-common</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	
 	<name>geometry-common</name>
@@ -20,7 +20,8 @@
 		<connection>scm:git:git@github.com:sgr-io/geometry-common.git</connection>
 		<developerConnection>scm:git:git@github.com:sgr-io/geometry-common.git</developerConnection>
 		<url>https://github.com/sgr-io/geometry-common</url>
-	</scm>
+	  <tag>v1.0.0</tag>
+  </scm>
 	<developers>
 		<developer>
 			<id>sgralpha</id>
