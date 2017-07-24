@@ -4,6 +4,9 @@ apply plugin: 'jacoco'
 group 'io.sgr'
 version '1.0.0-SNAPSHOT'
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 buildscript {
 	repositories {
 	    mavenCentral()
