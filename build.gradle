@@ -1,0 +1,54 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+group 'io.sgr'
+version '1.0.0-SNAPSHOT'
+
+buildscript {
+	repositories {
+	    mavenCentral()
+	}
+	dependencies {
+		classpath 'net.sf.proguard:proguard-gradle:5.3.3'
+	}
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('com.fasterxml.jackson.core:jackson-databind:2.9.0.pr4')
+    testCompile('junit:junit:4.12')
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
+
+jar {
+	baseName = archivesBaseName
+	manifest {
+		attributes "Implementation-Title": archivesBaseName
+		attributes "Implementation-Version": version
+	}
+}
+ 
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0.1'
+}
+
+task proguard(type: proguard.gradle.ProGuardTask) {
+	configuration 'proguard.cfg'
+	
+	injars "$buildDir/libs/${archivesBaseName}-${version}.jar"
+	outjars "$buildDir/libs/${archivesBaseName}-${version}-proguard.jar"
+
+	libraryjars "${System.getProperty('java.home')}/lib/rt.jar"
+	libraryjars "${System.getProperty('java.home')}/lib/jsse.jar"
+}
