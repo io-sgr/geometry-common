@@ -25,7 +25,7 @@ Coordinate earth = GeometryUtils.gcj2wgs(39.982296, 116.354308);
 为了避免这一问题，并给用户带来最高的精度及可自定义性，我们提供了两种解决问题的办法：
 
 ### 默认实现
-默认情况下，[GeometryUtils](src/main/java/org/isuper/geometry/utils/GeometryUtils.java) 会使用 [DefaultCoordinateChecker](src/main/java/org/isuper/geometry/utils/DefaultCoordinateChecker.java) 来进行地理位置信息的校验。
+默认情况下，[GeometryUtils](src/main/java/io/sgr/geometry/utils/GeometryUtils.java) 会使用 [DefaultCoordinateChecker](src/main/java/io/sgr/geometry/utils/DefaultCoordinateChecker.java) 来进行地理位置信息的校验。
 
 **DefaultCoordinateChecker** 跟其他大部分实现一样，采用了矩形边界的模式，但已经将**香港**、**澳门**以及**台湾**地区识别为在中国大陆范围之外，这个基本上可以覆盖绝大多数使用场景。
 
@@ -47,7 +47,7 @@ GeometryUtils.setCoordinateChecker(new CustomizedCoordinateChecker());
 
 # 许可协议
 
-    Copyright 2017 SgrAlpha
+    Copyright 2017-2018 SgrAlpha
    
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

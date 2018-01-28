@@ -23,7 +23,7 @@ Common implementations use a **HUGE** box boundary which covers entire **China M
 To make sure you have the maximum accuracy and flexibility, Geometry Utilities provided two ways for you to achieve that goal:
 
 ### Default Implementation
-By default, [GeometryUtils](src/main/java/org/isuper/geometry/utils/GeometryUtils.java) uses a [DefaultCoordinateChecker](src/main/java/org/isuper/geometry/utils/DefaultCoordinateChecker.java) to perform the check.
+By default, [GeometryUtils](src/main/java/io/sgr/geometry/utils/GeometryUtils.java) uses a [DefaultCoordinateChecker](src/main/java/io/sgr/geometry/utils/DefaultCoordinateChecker.java) to perform the check.
 
 The **DefaultCoordinateChecker** also uses a box boundary like other implementations but with **Taiwan**, **Hong Kong** and **Macau** excluded, which can cover most of the cases.
 
@@ -45,7 +45,7 @@ You're all set!
 
 # License
 
-    Copyright 2017 SgrAlpha
+    Copyright 2017-2018 SgrAlpha
    
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
