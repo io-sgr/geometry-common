@@ -12,7 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package io.sgr.geometry;
 
@@ -75,7 +74,7 @@ public class Coordinate implements Serializable {
 		if (rawCoordinate == null || rawCoordinate.trim().length() < 1) {
 			throw new IllegalArgumentException(String.format("Invalid comma separated coordinate string: %s", rawCoordinate));
 		}
-		String[] array = rawCoordinate.split(",");
+		String[] array = rawCoordinate.replaceAll(" ", "").split(",");
 		if (array.length != 2) {
 			throw new IllegalArgumentException(String.format("Invalid comma separated coordinate string: %s", rawCoordinate));
 		}
@@ -102,7 +101,7 @@ public class Coordinate implements Serializable {
 		if (rawCoordinate == null || rawCoordinate.trim().length() < 1) {
 			throw new IllegalArgumentException(String.format("Invalid comma separated coordinate hex string: %s", rawCoordinate));
 		}
-		String[] tmp = rawCoordinate.split(",");
+		String[] tmp = rawCoordinate.replaceAll(" ", "").split(",");
 		if (tmp.length != 2) {
 			throw new IllegalArgumentException(String.format("Invalid comma separated coordinate hex string: %s", rawCoordinate));
 		}
