@@ -18,21 +18,20 @@ package io.sgr.geometry.utils;
 /**
  * The default implementation of CoordinateChecker, which will treat Hong Kong, Macau and Taiwan out of China mainland.
  * This implementation use box boundaries to check the location, useful but not accurate.
- * 
- * @author SgrAlpha
  *
+ * @author SgrAlpha
  */
 public class DefaultCoordinateChecker implements CoordinateChecker {
 
-	/* (non-Javadoc)
-	 * @see io.sgr.geometry.utils.GeometryUtils.CoordinateChecker#isOutOfChinaMainland(double, double)
-	 */
-	@Override
-	public boolean isOutOfChinaMainland(double lat, double lng) {
-		return (lat < 22.446195 && lng > 113.678580 && lng < 114.427582)
-				|| (lat < 22.217493 && lat > 22.177243 && lng > 113.528421 && lng < 113.563058)
-				|| (lat < 25.401950 && lng < 125.502319 && lat > 21.675348 && lng > 119.827835)
-				|| (lng < 72.004) || (lng > 137.8347) || (lat < 0.8293) || (lat > 55.8271);
-	}
+    /* (non-Javadoc)
+     * @see io.sgr.geometry.utils.GeometryUtils.CoordinateChecker#isOutOfChinaMainland(double, double)
+     */
+    @Override
+    public boolean isOutOfChinaMainland(double lat, double lng) {
+        return (lat < 22.446195 && lng > 113.678580 && lng < 114.427582)
+                || (lat < 22.217493 && lat > 22.177243 && lng > 113.528421 && lng < 113.563058)
+                || (lat < 25.401950 && lng < 125.502319 && lat > 21.675348 && lng > 119.827835)
+                || (lng < 72.004) || (lng > 137.8347) || (lat < 0.8293) || (lat > 55.8271);
+    }
 
 }

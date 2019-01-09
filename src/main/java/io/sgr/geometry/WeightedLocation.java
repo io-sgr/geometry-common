@@ -21,51 +21,46 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author SgrAlpha
- *
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WeightedLocation {
-	
-	private final Coordinate location;
-	private float weight;
-	
-	/**
-	 * @param location
-	 * 			The location
-	 * @param weight
-	 * 			The weight
-	 * @throws IllegalArgumentException
-	 * 			If the location is null or weight is less or equal to 0
-	 */
-	@JsonCreator
-	public WeightedLocation(
-			@JsonProperty("location") Coordinate location,
-			@JsonProperty("weight") float weight
-			) throws IllegalArgumentException {
-		if (location == null) {
-			throw new IllegalArgumentException("Location should be provided");
-		}
-		this.location = location;
-		if (weight <= 0) {
-			throw new IllegalArgumentException("Weight should be greater than 0");
-		}
-		this.weight = weight;
-	}
 
-	/**
-	 * @return
-	 * 			The location
-	 */
-	public Coordinate getLocation() {
-		return this.location;
-	}
+    private final Coordinate location;
+    private float weight;
 
-	/**
-	 * @return
-	 * 			The weight
-	 */
-	public float getWeight() {
-		return this.weight;
-	}
+    /**
+     * @param location The location
+     * @param weight   The weight
+     *
+     * @throws IllegalArgumentException If the location is null or weight is less or equal to 0
+     */
+    @JsonCreator
+    public WeightedLocation(
+            @JsonProperty("location") Coordinate location,
+            @JsonProperty("weight") float weight
+    ) throws IllegalArgumentException {
+        if (location == null) {
+            throw new IllegalArgumentException("Location should be provided");
+        }
+        this.location = location;
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Weight should be greater than 0");
+        }
+        this.weight = weight;
+    }
+
+    /**
+     * @return The location
+     */
+    public Coordinate getLocation() {
+        return this.location;
+    }
+
+    /**
+     * @return The weight
+     */
+    public float getWeight() {
+        return this.weight;
+    }
 
 }

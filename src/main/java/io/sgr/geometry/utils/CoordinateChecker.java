@@ -17,20 +17,17 @@ package io.sgr.geometry.utils;
 
 /**
  * Interface to build customized coordinate checker to see if the coordinate is out of China mainland.
- * 
- * @author SgrAlpha
  *
+ * @author SgrAlpha
  */
 public interface CoordinateChecker {
 
-	/**
-	 * @param lat
-	 * 				The latitude
-	 * @param lng
-	 * 				The longitude
-	 * @return
-	 * 				Whether or not the coordinate is out of China mainland
-	 */
-	boolean isOutOfChinaMainland(double lat, double lng);
+    /**
+     * @param lat The latitude
+     * @param lng The longitude
+     *
+     * @return Whether or not the coordinate is out of China mainland
+     */
+    boolean isOutOfChinaMainland(double lat, double lng);
 
 }
