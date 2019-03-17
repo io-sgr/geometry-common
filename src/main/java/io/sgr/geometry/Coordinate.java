@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package io.sgr.geometry;
+
+import io.sgr.geometry.utils.GeometryUtils;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.sgr.geometry.utils.GeometryUtils;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -39,12 +41,14 @@ public class Coordinate implements Serializable {
     private final double lng;
 
     /**
-     * @param lat The latitude
-     * @param lng The longitude
-     *
-     * @throws IllegalArgumentException If the latitude or longitude is out of range. Check {@link
-     *                                  io.sgr.geometry.utils.GeometryUtils#isValidCoordinate(double, double)} for
-     *                                  details.
+     * @param lat
+     *         The latitude
+     * @param lng
+     *         The longitude
+     * @throws IllegalArgumentException
+     *         If the latitude or longitude is out of range. Check {@link
+     *         io.sgr.geometry.utils.GeometryUtils#isValidCoordinate(double, double)} for
+     *         details.
      */
     @JsonCreator
     public Coordinate(
@@ -61,11 +65,11 @@ public class Coordinate implements Serializable {
     /**
      * Parse a comma separated string to coordinate object
      *
-     * @param rawCoordinate A comma separated string, like 0,0
-     *
+     * @param rawCoordinate
+     *         A comma separated string, like 0,0
      * @return The coordinate object.
-     *
-     * @throws IllegalArgumentException If failed to construct Coordinate object.
+     * @throws IllegalArgumentException
+     *         If failed to construct Coordinate object.
      */
     public static Coordinate parseCommaSeparatedString(String rawCoordinate) throws IllegalArgumentException {
         if (rawCoordinate == null || rawCoordinate.trim().length() < 1) {
@@ -87,11 +91,11 @@ public class Coordinate implements Serializable {
     /**
      * Parse a comma separated hex string to coordinate object
      *
-     * @param rawCoordinate A comma separated coordinate string in hex format, like 02c94442,04f21576
-     *
+     * @param rawCoordinate
+     *         A comma separated coordinate string in hex format, like 02c94442,04f21576
      * @return The coordinate object.
-     *
-     * @throws IllegalArgumentException If failed to construct Coordinate object.
+     * @throws IllegalArgumentException
+     *         If failed to construct Coordinate object.
      */
     public static Coordinate parseCommaSeparatedHexString(String rawCoordinate) {
         if (rawCoordinate == null || rawCoordinate.trim().length() < 1) {

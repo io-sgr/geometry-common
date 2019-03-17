@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package io.sgr.geometry.utils;
+
+import io.sgr.geometry.Coordinate;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.sgr.geometry.Coordinate;
 
 /**
  * @author SgrAlpha
@@ -69,15 +71,16 @@ public class GeometryUtils {
      * Override the global CoordinateChecker with a customized implementation.
      * Set to null will go back to default implementation.
      *
-     * @param checker The CoordinateChecker to set
+     * @param checker
+     *         The CoordinateChecker to set
      */
     public static void setCoordinateChecker(CoordinateChecker checker) {
         COORDINATE_CHECKER = checker == null ? DEFAULT_COORDINATE_CHECKER : checker;
     }
 
     /**
-     * @param lat The latitude
-     *
+     * @param lat
+     *         The latitude
      * @return If the latitude is in a valid range
      */
     public static final boolean latInRange(double lat) {
@@ -85,8 +88,8 @@ public class GeometryUtils {
     }
 
     /**
-     * @param lng The longitude
-     *
+     * @param lng
+     *         The longitude
      * @return If the longitude is in a valid range
      */
     public static final boolean lngInRange(final double lng) {
@@ -94,9 +97,10 @@ public class GeometryUtils {
     }
 
     /**
-     * @param lat The latitude
-     * @param lng The longitude
-     *
+     * @param lat
+     *         The latitude
+     * @param lng
+     *         The longitude
      * @return If both latitude and longitude are in valid range
      */
     public static final boolean isValidCoordinate(final double lat, final double lng) {
@@ -106,8 +110,8 @@ public class GeometryUtils {
     /**
      * Convert coordinate from earth(WGS-84) to mars(GCJ-02).
      *
-     * @param wgs The WGS coordinate
-     *
+     * @param wgs
+     *         The WGS coordinate
      * @return An {@link Coordinate} mars coordinate
      */
     public static Coordinate wgs2gcj(Coordinate wgs) {
@@ -123,8 +127,8 @@ public class GeometryUtils {
     /**
      * Convert coordinate from mars(GCJ-02) to earth(WGS-84) in a more accurate but slower way.
      *
-     * @param gcj The GCJ coordinate
-     *
+     * @param gcj
+     *         The GCJ coordinate
      * @return An {@link Coordinate} earth coordinate
      */
     public static Coordinate gcj2wgsAccurate(final Coordinate gcj) {
@@ -168,8 +172,8 @@ public class GeometryUtils {
     /**
      * Convert coordinate from mars(GCJ-02) to earth(WGS-84).
      *
-     * @param gcj The GCJ coordinate
-     *
+     * @param gcj
+     *         The GCJ coordinate
      * @return An {@link Coordinate} earth coordinate
      */
     public static Coordinate gcj2wgs(final Coordinate gcj) {

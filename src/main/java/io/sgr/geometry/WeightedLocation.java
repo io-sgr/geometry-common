@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package io.sgr.geometry;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,10 +30,12 @@ public class WeightedLocation {
     private float weight;
 
     /**
-     * @param location The location
-     * @param weight   The weight
-     *
-     * @throws IllegalArgumentException If the location is null or weight is less or equal to 0
+     * @param location
+     *         The location
+     * @param weight
+     *         The weight
+     * @throws IllegalArgumentException
+     *         If the location is null or weight is less or equal to 0
      */
     @JsonCreator
     public WeightedLocation(

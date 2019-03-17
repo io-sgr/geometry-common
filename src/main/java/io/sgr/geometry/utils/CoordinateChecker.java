@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package io.sgr.geometry.utils;
 
 /**
@@ -23,9 +24,10 @@ package io.sgr.geometry.utils;
 public interface CoordinateChecker {
 
     /**
-     * @param lat The latitude
-     * @param lng The longitude
-     *
+     * @param lat
+     *         The latitude
+     * @param lng
+     *         The longitude
      * @return Whether or not the coordinate is out of China mainland
      */
     boolean isOutOfChinaMainland(double lat, double lng);
