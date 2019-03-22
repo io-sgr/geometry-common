@@ -33,7 +33,7 @@
     <description>This library is a simple JAVA library that helps you transform coordinate between earth(WGS-84) and
         mars in China(GCJ-02).
     </description>
-    <url>https://github.com/sgr-io/geometry-common</url>
+    <url>https://github.com/io-sgr/geometry-common</url>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -44,7 +44,7 @@
     <scm>
         <connection>scm:git:git@github.com:io-sgr/geometry-common.git</connection>
         <developerConnection>scm:git:git@github.com:io-sgr/geometry-common.git</developerConnection>
-        <url>https://github.com/sgr-io/geometry-common</url>
+        <url>https://github.com/io-sgr/geometry-common</url>
         <tag>HEAD</tag>
     </scm>
     <developers>
