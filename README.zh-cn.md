@@ -1,4 +1,6 @@
 # Geometry Utilities
+[![Build Status](https://travis-ci.org/io-sgr/geometry-common.svg?branch=master)](https://travis-ci.org/io-sgr/geometry-common) [![codecov](https://codecov.io/gh/io-sgr/geometry-common/branch/master/graph/badge.svg)](https://codecov.io/gh/io-sgr/geometry-common)
+
 本地理位置工具库是一个非常小巧的支持 Java 及 Android 的库，主要致力于实现 地球坐标（WGS-84）到火星坐标（GCJ-02）的转换。
 
 *用其他语言阅读: [English](README.md), [简体中文](README.zh-cn.md).*

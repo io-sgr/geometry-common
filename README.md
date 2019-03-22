@@ -1,4 +1,6 @@
 # Geometry Utilities
+[![Build Status](https://travis-ci.org/io-sgr/geometry-common.svg?branch=master)](https://travis-ci.org/io-sgr/geometry-common) [![codecov](https://codecov.io/gh/io-sgr/geometry-common/branch/master/graph/badge.svg)](https://codecov.io/gh/io-sgr/geometry-common)
+
 This library is a simple JAVA / Android library that helps you transform coordinate between earth(WGS-84) and mars in China(GCJ-02).
 
 *Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md).*
