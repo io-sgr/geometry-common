@@ -105,9 +105,13 @@ public class Coordinate implements Serializable {
         if (tmp.length != 2) {
             throw new IllegalArgumentException(String.format("Invalid comma separated coordinate hex string: %s", rawCoordinate));
         }
-        long latE6 = (int) Long.parseLong(tmp[0], 16);
-        long lngE6 = (int) Long.parseLong(tmp[1], 16);
-        return new Coordinate(latE6 / 1e6, lngE6 / 1e6);
+        try {
+            long latE6 = (int) Long.parseLong(tmp[0], 16);
+            long lngE6 = (int) Long.parseLong(tmp[1], 16);
+            return new Coordinate(latE6 / 1e6, lngE6 / 1e6);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(String.format("Invalid comma separated coordinate hex string: %s", rawCoordinate));
+        }
     }
 
     /* (non-Javadoc)
@@ -126,6 +130,7 @@ public class Coordinate implements Serializable {
     /**
      * @return The latitude
      */
+    @JsonProperty("lat")
     public double getLat() {
         return this.lat;
     }
@@ -133,6 +138,7 @@ public class Coordinate implements Serializable {
     /**
      * @return The longitude
      */
+    @JsonProperty("lng")
     public double getLng() {
         return this.lng;
     }
@@ -186,10 +192,7 @@ public class Coordinate implements Serializable {
         if (Double.doubleToLongBits(this.lat) != Double.doubleToLongBits(other.lat)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.lng) != Double.doubleToLongBits(other.lng)) {
-            return false;
-        }
-        return true;
+        return Double.doubleToLongBits(this.lng) == Double.doubleToLongBits(other.lng);
     }
 
 }

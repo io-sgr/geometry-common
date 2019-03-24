@@ -55,6 +55,7 @@ public class WeightedLocation {
     /**
      * @return The location
      */
+    @JsonProperty("location")
     public Coordinate getLocation() {
         return this.location;
     }
@@ -62,6 +63,7 @@ public class WeightedLocation {
     /**
      * @return The weight
      */
+    @JsonProperty("weight")
     public float getWeight() {
         return this.weight;
     }

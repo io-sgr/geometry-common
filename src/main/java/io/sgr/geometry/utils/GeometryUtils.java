@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * @author SgrAlpha
  */
-public class GeometryUtils {
+public final class GeometryUtils {
 
     /**
      * The maximum longitude
@@ -45,17 +45,8 @@ public class GeometryUtils {
 
     private static final JsonFactory JSON_FACTORY = new JsonFactory();
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper(JSON_FACTORY);
-
-    static {
-        // OBJECT_MAPPER.setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);
-    }
-
-    /**
-     * @return The default json factory
-     */
-    public static JsonFactory getJsonFactory() {
-        return JSON_FACTORY;
-    }
+    private static final CoordinateChecker DEFAULT_COORDINATE_CHECKER = new DefaultCoordinateChecker();
+    private static CoordinateChecker COORDINATE_CHECKER = DEFAULT_COORDINATE_CHECKER;
 
     /**
      * @return The default object mapper
@@ -64,9 +55,6 @@ public class GeometryUtils {
         return OBJECT_MAPPER;
     }
 
-    private static final CoordinateChecker DEFAULT_COORDINATE_CHECKER = new DefaultCoordinateChecker();
-    private static CoordinateChecker COORDINATE_CHECKER = DEFAULT_COORDINATE_CHECKER;
-
     /**
      * Override the global CoordinateChecker with a customized implementation.
      * Set to null will go back to default implementation.
@@ -74,7 +62,7 @@ public class GeometryUtils {
      * @param checker
      *         The CoordinateChecker to set
      */
-    public static void setCoordinateChecker(CoordinateChecker checker) {
+    public static void setCoordinateChecker(final CoordinateChecker checker) {
         COORDINATE_CHECKER = checker == null ? DEFAULT_COORDINATE_CHECKER : checker;
     }
 
@@ -83,7 +71,7 @@ public class GeometryUtils {
      *         The latitude
      * @return If the latitude is in a valid range
      */
-    public static final boolean latInRange(double lat) {
+    public static boolean latInRange(final double lat) {
         return lat >= (LAT_MIN / 1e6f) && lat <= (LAT_MAX / 1e6f);
     }
 
@@ -92,7 +80,7 @@ public class GeometryUtils {
      *         The longitude
      * @return If the longitude is in a valid range
      */
-    public static final boolean lngInRange(final double lng) {
+    public static boolean lngInRange(final double lng) {
         return lng >= (LNG_MIN / 1e6f) && lng <= (LNG_MAX / 1e6f);
     }
 
@@ -103,7 +91,7 @@ public class GeometryUtils {
      *         The longitude
      * @return If both latitude and longitude are in valid range
      */
-    public static final boolean isValidCoordinate(final double lat, final double lng) {
+    public static boolean isValidCoordinate(final double lat, final double lng) {
         return latInRange(lat) && lngInRange(lng);
     }
 
@@ -114,7 +102,7 @@ public class GeometryUtils {
      *         The WGS coordinate
      * @return An {@link Coordinate} mars coordinate
      */
-    public static Coordinate wgs2gcj(Coordinate wgs) {
+    public static Coordinate wgs2gcj(final Coordinate wgs) {
         double wgsLat = wgs.getLat();
         double wgsLng = wgs.getLng();
         if (COORDINATE_CHECKER.isOutOfChinaMainland(wgsLat, wgsLng)) {
@@ -186,7 +174,7 @@ public class GeometryUtils {
         return new Coordinate(gcjLat - d.getLat(), gcjLng - d.getLng());
     }
 
-    private static Coordinate delta(double lat, double lng) {
+    private static Coordinate delta(final double lat, final double lng) {
         double a = 6378137.0;
         double ee = 0.00669342162296594323;
         double dLat = transformLat(lng - 105.0, lat - 35.0);
@@ -200,7 +188,7 @@ public class GeometryUtils {
         return new Coordinate(dLat, dLng);
     }
 
-    private static double transformLat(double x, double y) {
+    private static double transformLat(final double x, final double y) {
         double ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x));
         ret += (20.0 * Math.sin(6.0 * x * Math.PI) + 20.0 * Math.sin(2.0 * x * Math.PI)) * 2.0 / 3.0;
         ret += (20.0 * Math.sin(y * Math.PI) + 40.0 * Math.sin(y / 3.0 * Math.PI)) * 2.0 / 3.0;
@@ -208,7 +196,7 @@ public class GeometryUtils {
         return ret;
     }
 
-    private static double transformLng(double x, double y) {
+    private static double transformLng(final double x, final double y) {
         double ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x));
         ret += (20.0 * Math.sin(6.0 * x * Math.PI) + 20.0 * Math.sin(2.0 * x * Math.PI)) * 2.0 / 3.0;
         ret += (20.0 * Math.sin(x * Math.PI) + 40.0 * Math.sin(x / 3.0 * Math.PI)) * 2.0 / 3.0;
