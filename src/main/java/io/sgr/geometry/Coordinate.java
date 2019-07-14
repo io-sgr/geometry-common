@@ -110,7 +110,7 @@ public class Coordinate implements Serializable {
             long lngE6 = (int) Long.parseLong(tmp[1], 16);
             return new Coordinate(latE6 / 1e6, lngE6 / 1e6);
         } catch (Exception e) {
-            throw new IllegalArgumentException(String.format("Invalid comma separated coordinate hex string: %s", rawCoordinate));
+            throw new IllegalArgumentException(String.format("Invalid comma separated coordinate hex string: %s", rawCoordinate), e);
         }
     }
 
